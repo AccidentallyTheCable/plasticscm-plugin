@@ -1,23 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>plugin</artifactId>
-    <version>1.580.1</version>
-    <relativePath>../pom.xml</relativePath>
+        <groupId>org.jenkins-ci.plugins</groupId>
+        <artifactId>plugin</artifactId>
+        <version>3.10</version>
+        <relativePath />
   </parent>
-
   <artifactId>plasticscm-plugin</artifactId>
-  <name>PlasticSCM Plugin</name>
-  <version>2.17-SNAPSHOT</version>
+  <name>PlasticSCM Plugin - Custom Fork</name>
+  <version>2.17-custom</version>
   <packaging>hpi</packaging>
   <description>Integrates Jenkins to Plastic SCM</description>
-  <url>http://wiki.jenkins-ci.org/display/JENKINS/PlasticSCM+Plugin</url>
+
+<properties>
+    <java.level>8</java.level>
+  </properties> 
 
   <scm>
-      <connection>scm:git:ssh://github.com/jenkinsci/plasticscm-plugin.git</connection>
-      <developerConnection>scm:git:ssh://git@github.com/jenkinsci/plasticscm-plugin.git</developerConnection>
-      <url>https://github.com/jenkinsci/plasticscm-plugin</url>
+      <connection>scm:git:ssh://github.com/AccidentallyTheCable/plasticscm-plugin.git</connection>
+      <developerConnection>scm:git:ssh://git@github.com/AccidentallyTheCable/plasticscm-plugin.git</developerConnection>
+      <url>https://github.com/AccidentallyTheCable/plasticscm-plugin</url>
       <tag>HEAD</tag>
   </scm>
 
@@ -27,16 +29,45 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
         <version>2.5.3</version>
+	<executions>
+		<execution>
+			<configuration>
+				<rules>
+					<requireJavaVersion>
+						<version>1.8.0</version>
+					</requireJavaVersion>
+				</rules>
+			</configuration>
+		</execution>
+	</executions>
       </plugin>
       <plugin>
         <groupId>com.cloudbees</groupId>
         <artifactId>maven-license-plugin</artifactId>
         <version>1.7</version>
+	<executions>
+		<execution>
+			<configuration>
+				<rules>
+					<requireJavaVersion>
+						<version>1.8.0</version>
+					</requireJavaVersion>
+				</rules>
+			</configuration>
+		</execution>
+	</executions>
       </plugin>
     </plugins>
   </build>
 
   <developers>
+      <developer>
+          <id>AccidentallyTheCable</id>
+          <name>Chris Walker</name>
+          <email>cableninja@cableninja.net</email>
+          <organization>CableNinja</organization>
+          <organizationUrl>http://dev/null</organizationUrl>
+      </developer>
       <developer>
           <id>mig42</id>
           <name>Miguel Gonzalez</name>
